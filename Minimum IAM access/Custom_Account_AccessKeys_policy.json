@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ManageOwnAccessKeys",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateAccessKey",
+                "iam:DeleteAccessKey",
+                "iam:GetAccessKeyLastUsed",
+                "iam:GetUser",
+                "iam:ListAccessKeys",
+                "iam:UpdateAccessKey"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "ManagerOwnPermission",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUserPolicies",
+                "iam:ListAttachedUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "ManageOwnGroup",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListGroupsForUser",
+                "iam:ListUsers",
+                "iam:ListGroups",
+                "iam:ListGroupPolicies",
+                "iam:ListAttachedGroupPolicies"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
